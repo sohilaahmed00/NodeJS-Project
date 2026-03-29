@@ -1,20 +1,19 @@
-const express = require('express');
-const {
+import { Router } from 'express';
+import {
   getAllCoupons,
   getCoupon,
   createCoupon,
   updateCoupon,
   deleteCoupon,
-} = require('../controllers/couponController');
+} from '../controllers/couponController.js';
 
-// const { protect, restrictTo } = require('../controllers/authController');
+// import { protect, restrictTo } from '../controllers/authController.js';
 
-const router = express.Router();
+const router = Router();
 
 // router.use(protect, restrictTo('admin', 'manager'));
 
 router.route('/').get(getAllCoupons).post(createCoupon);
-
 router.route('/:id').get(getCoupon).put(updateCoupon).delete(deleteCoupon);
 
-module.exports = router;
+export default router;

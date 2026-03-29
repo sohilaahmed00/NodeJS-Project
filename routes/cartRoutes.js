@@ -1,29 +1,30 @@
-const express = require('express');
-const {
+import { Router } from 'express';
+import {
   addToCart,
   removeFromCart,
   getCurrentUserCart,
   updateCartItemQuantity,
   clearCart,
   applyCoupon,
-} = require('../controllers/cartController');
+} from '../controllers/cartController.js';
 
-// const { protect, restrictTo } = require('../controllers/authController');
+// import { protect, restrictTo } from '../controllers/authController.js';
 
-const router = express.Router();
+const router = Router();
 
 // router.use(protect, restrictTo('user'));
 
 router
   .route('/')
-  .get(getCurrentUserCart)   
-  .post(addToCart)           
-  .delete(clearCart);        
+  .get(getCurrentUserCart)
+  .post(addToCart)
+  .delete(clearCart);
 
-router.put('/applyCoupon', applyCoupon); 
+router.put('/applyCoupon', applyCoupon);
 
 router
   .route('/:itemId')
-  .put(updateCartItemQuantity)  
-  .delete(removeFromCart);      
-module.exports = router;
+  .put(updateCartItemQuantity)
+  .delete(removeFromCart);
+
+export default router;

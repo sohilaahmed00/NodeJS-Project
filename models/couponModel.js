@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const couponSchema = new mongoose.Schema(
   {
@@ -19,10 +19,16 @@ const couponSchema = new mongoose.Schema(
       min: [1, 'Discount must be at least 1'],
       max: [100, 'Discount cannot exceed 100'],
     },
+    usedBy: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+      },
+    ],
   },
   { timestamps: true }
 );
 
 const Coupon = mongoose.model('Coupon', couponSchema);
 
-module.exports = Coupon;
+export default Coupon;
