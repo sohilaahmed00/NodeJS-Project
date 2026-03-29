@@ -1,12 +1,8 @@
-const Coupon = require('../models/couponModel');
-const handlerFactory = require('./handlerFactory');
+import Coupon from '../models/couponModel.js';
+import * as handlerFactory from './handlerFactory.js';
 
-exports.getAllCoupons = handlerFactory.getAll(Coupon);
-
-exports.getCoupon = handlerFactory.getOne(Coupon);
-
-exports.createCoupon = handlerFactory.createOne(Coupon);
-
-exports.updateCoupon = handlerFactory.updateOne(Coupon);
-
-exports.deleteCoupon = handlerFactory.deleteOne(Coupon);
+export const getAllCoupons = handlerFactory.getAll(Coupon);
+export const getCoupon    = handlerFactory.getOne(Coupon);
+export const createCoupon = handlerFactory.createOne(Coupon);
+export const updateCoupon = handlerFactory.updateOne(Coupon);
+export const deleteCoupon = handlerFactory.deleteOne(Coupon);
