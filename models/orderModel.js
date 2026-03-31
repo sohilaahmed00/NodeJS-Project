@@ -64,11 +64,8 @@ const orderSchema = new mongoose.Schema(
         message: '{VALUE} is not a valid payment method',
       },
     },
-    isPaid: {
-      type: Boolean,
-      default: false,
-    },
     paidAt: Date,
+    deliveredAt: Date,
     shippingAddress: {
       details: { type: String, required: true },
       phone: { type: String, required: true },
