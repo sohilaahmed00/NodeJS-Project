@@ -14,17 +14,10 @@ const router = Router();
 
 // router.use(protect, restrictTo('user'));
 
-router
-  .route('/')
-  .get(getCurrentUserCart)
-  .post(addToCart)
-  .delete(clearCart);
+router.route('/').get(getCurrentUserCart).post(addToCart).delete(clearCart);
 
-router.put('/applyCoupon', applyCoupon);
+router.patch('/applyCoupon', applyCoupon);
 
-router
-  .route('/:itemId')
-  .put(updateCartItemQuantity)
-  .delete(removeFromCart);
+router.route('/:itemId').patch(updateCartItemQuantity).delete(removeFromCart);
 
 export default router;

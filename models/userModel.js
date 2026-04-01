@@ -1,82 +1,82 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 
 const addressSchema = new mongoose.Schema(
   {
-    details:    { type: String },
-    phone:      { type: String },
-    city:       { type: String },
+    details: { type: String },
+    phone: { type: String },
+    city: { type: String },
     postalCode: { type: String },
   },
-  { _id: true }
+  { _id: true },
 );
 
 const userSchema = new mongoose.Schema(
   {
     name: {
-      type:     String,
+      type: String,
       required: [true, 'Name is required'],
-      trim:     true,
+      trim: true,
     },
     email: {
-      type:      String,
-      required:  [true, 'Email is required'],
-      unique:    true,
+      type: String,
+      required: [true, 'Email is required'],
+      unique: true,
       lowercase: true,
-      trim:      true,
+      trim: true,
     },
     password: {
-      type:     String,
+      type: String,
       required: [true, 'Password is required'],
       minlength: [8, 'Password must be at least 8 characters'],
-      select:   false,
+      select: false,
     },
     phone: {
       type: String,
     },
     role: {
-      type:    String,
-      enum:    ['user', 'admin', 'seller'],
+      type: String,
+      enum: ['user', 'admin', 'seller'],
       default: 'user',
     },
     isVerified: {
-      type:    Boolean,
+      type: Boolean,
       default: false,
     },
     verificationToken: {
-      type:   String,
+      type: String,
       select: false,
     },
     verificationTokenExpires: {
-      type:   Date,
+      type: Date,
       select: false,
     },
     active: {
-      type:    Boolean,
+      type: Boolean,
       default: true,
-      select:  false,
+      select: false,
     },
     addresses: [addressSchema],
     wishlist: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref:  'Product',
+        ref: 'Product',
       },
     ],
     passwordChangedAt: {
-      type:   Date,
+      type: Date,
       select: false,
     },
     passwordResetToken: {
-      type:   String,
+      type: String,
       select: false,
     },
     passwordResetExpires: {
-      type:   Date,
+      type: Date,
       select: false,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 // Hash password before saving
@@ -91,14 +91,20 @@ userSchema.pre(/^find/, function () {
 });
 
 // Instance method: compare passwords
-userSchema.methods.correctPassword = async function (candidatePassword, userPassword) {
+userSchema.methods.correctPassword = async function (
+  candidatePassword,
+  userPassword,
+) {
   return bcrypt.compare(candidatePassword, userPassword);
 };
 
 // Instance method: check if password was changed after a given timestamp
 userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   if (this.passwordChangedAt) {
-    const changedTimestamp = parseInt(this.passwordChangedAt.getTime() / 1000, 10);
+    const changedTimestamp = parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10,
+    );
     return JWTTimestamp < changedTimestamp;
   }
   return false;
