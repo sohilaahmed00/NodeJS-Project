@@ -8,11 +8,11 @@ import {
   applyCoupon,
 } from '../controllers/cartController.js';
 
-// import { protect, restrictTo } from '../controllers/authController.js';
+import { protect, restrictTo } from '../controllers/authController.js';
 
 const router = Router();
 
-// router.use(protect, restrictTo('user'));
+router.use(protect, restrictTo('user'));
 
 router.route('/').get(getCurrentUserCart).post(addToCart).delete(clearCart);
 
