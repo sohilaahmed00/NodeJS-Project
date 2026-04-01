@@ -1,10 +1,11 @@
+import dns from 'dns';
+dns.setServers(['8.8.8.8', '8.8.4.4'])
+
 import './config/config.js';
 
 import mongoose from 'mongoose';
 import { app } from './app.js';
 
-import cartRouter   from './routes/cartRoutes.js';
-import couponRouter from './routes/couponRoutes.js';
 
 
 let server;
@@ -26,5 +27,3 @@ try {
 }
 
 
-app.use('/cart',   cartRouter);
-app.use('/coupons', couponRouter);

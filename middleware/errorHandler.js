@@ -40,13 +40,14 @@ const sendErrorProd = (err, res) => {
       message: err.message,
     });
   } else {
-    console.log('Error💣', err);
+    console.log('Error', err);
 
     res.status(500).json({ status: 'error', message: 'Something Went wrong!' });
   }
 };
 
 export default (err, req, res, next) => {
+  console.log(err)
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
 
