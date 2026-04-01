@@ -1,0 +1,109 @@
+[
+  {
+    "name": "Admin User",
+    "email": "admin@example.com",
+    "password": "Admin@1234",
+    "phone": "+201001234567",
+    "role": "admin",
+    "isVerified": true,
+    "active": true,
+    "addresses": [
+      {
+        "details": "123 Admin Street, Floor 5",
+        "phone": "+201001234567",
+        "city": "Cairo",
+        "postalCode": "11511"
+      }
+    ],
+    "wishlist": []
+  },
+  {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "User@1234",
+    "phone": "+201112345678",
+    "role": "user",
+    "isVerified": true,
+    "active": true,
+    "addresses": [
+      {
+        "details": "45 Nile Avenue, Apartment 3",
+        "phone": "+201112345678",
+        "city": "Giza",
+        "postalCode": "12511"
+      },
+      {
+        "details": "12 Tahrir Square",
+        "phone": "+201112345678",
+        "city": "Cairo",
+        "postalCode": "11516"
+      }
+    ],
+    "wishlist": []
+  },
+  {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "password": "User@1234",
+    "phone": "+201223456789",
+    "role": "user",
+    "isVerified": true,
+    "active": true,
+    "addresses": [
+      {
+        "details": "78 Corniche Road, Villa 9",
+        "phone": "+201223456789",
+        "city": "Alexandria",
+        "postalCode": "21500"
+      }
+    ],
+    "wishlist": []
+  },
+  {
+    "name": "Sara Seller",
+    "email": "sara.seller@example.com",
+    "password": "Seller@1234",
+    "phone": "+201334567890",
+    "role": "seller",
+    "isVerified": true,
+    "active": true,
+    "addresses": [
+      {
+        "details": "99 Market Street, Shop 2",
+        "phone": "+201334567890",
+        "city": "Cairo",
+        "postalCode": "11728"
+      }
+    ],
+    "wishlist": []
+  },
+  {
+    "name": "Ahmed Hassan",
+    "email": "ahmed.hassan@example.com",
+    "password": "User@1234",
+    "phone": "+201445678901",
+    "role": "user",
+    "isVerified": false,
+    "active": true,
+    "addresses": [],
+    "wishlist": []
+  },
+  {
+    "name": "Manager User",
+    "email": "manager@example.com",
+    "password": "Manager@1234",
+    "phone": "+201556789012",
+    "role": "admin",
+    "isVerified": true,
+    "active": true,
+    "addresses": [
+      {
+        "details": "5 Business District, Tower B",
+        "phone": "+201556789012",
+        "city": "Cairo",
+        "postalCode": "11835"
+      }
+    ],
+    "wishlist": []
+  }
+]
