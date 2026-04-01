@@ -1,22 +1,20 @@
-import dns from 'dns';
-dns.setServers(['8.8.8.8', '8.8.4.4'])
+import dns from "dns";
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
-import './config/config.js';
+import "./config/config.js";
 
-import mongoose from 'mongoose';
-import { app } from './app.js';
-
-
+import mongoose from "mongoose";
+import { app } from "./app.js";
 
 let server;
 try {
   await mongoose.connect(
-    process.env.DB_URI.replace('<db_user>', process.env.DB_USER).replace(
-      '<db_password>',
+    process.env.DB_URI.replace("<db_user>", process.env.DB_USER).replace(
+      "<db_password>",
       process.env.DB_PASSWORD,
     ),
   );
-  console.log('DB connected!');
+  console.log("DB connected!");
 
   const PORT = process.env.PORT || 3000;
   server = app.listen(PORT, () =>
@@ -25,5 +23,3 @@ try {
 } catch (error) {
   console.log(error);
 }
-
-
