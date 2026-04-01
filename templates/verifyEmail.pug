@@ -1,0 +1,17 @@
+extends baseEmail
+
+block content
+  p Hi #{firstName},
+  p Welcome to MyAwesomeApp, we're glad to have you! 🎉
+  p We just need to verify your email address to get you started.
+  table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    tbody
+      tr
+        td(align='left')
+          table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+            tbody
+              tr
+                td
+                  a(href=`${url}`, target='_blank') Verify your email
+  p If you didn't create an account, you can safely ignore this email.
+  p - The MyAwesomeApp Team
