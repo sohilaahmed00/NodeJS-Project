@@ -1,14 +1,24 @@
 // Use like the commented code
 // import { categoryRouter } from './categoryRoutes.js';
 
-import cartRouter      from './cartRoutes.js';
-import couponRouter    from './couponRoutes.js';
+import cartRouter from './cartRoutes.js';
+import couponRouter from './couponRoutes.js';
+
+import authRouter from './authRoutes.js';
+import userRouter from './userRoutes.js';
+import addressRouter from './addressRoutes.js';
+import wishlistRouter from './wishlistRoutes.js';
 
 const mountRoutes = (app) => {
   // app.use('/api/v1/categories', categoryRouter);
-  
-  app.use('/api/v1/cart',     cartRouter);
-  app.use('/api/v1/coupons',  couponRouter);
+
+  app.use('/api/v1/cart', cartRouter);
+  app.use('/api/v1/coupons', couponRouter);
+
+  app.use('/api/v1/auth', authRouter);
+  app.use('/api/v1/users', userRouter);
+  app.use('/api/v1/address', addressRouter);
+  app.use('/api/v1/wishlist', wishlistRouter);
 };
 
 export { mountRoutes };
