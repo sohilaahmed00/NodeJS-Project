@@ -13,8 +13,8 @@ router.post('/cash', orderController.createCashOrder);
 router.post('/checkout-session', orderController.createCheckoutSession);
 router.post('/:id/cancel', orderController.cancelCashOrder);
 router.patch(
-  restrictTo('admin'),
   '/:id/status',
+  restrictTo('admin'),
   orderController.updateOrderStatus,
 );
 
