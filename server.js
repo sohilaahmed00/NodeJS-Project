@@ -3,10 +3,6 @@ import './config/config.js';
 import mongoose from 'mongoose';
 import { app } from './app.js';
 
-import cartRouter   from './routes/cartRoutes.js';
-import couponRouter from './routes/couponRoutes.js';
-
-
 let server;
 try {
   await mongoose.connect(
@@ -24,7 +20,3 @@ try {
 } catch (error) {
   console.log(error);
 }
-
-
-app.use('/cart',   cartRouter);
-app.use('/coupons', couponRouter);
