@@ -1,4 +1,6 @@
 import dns from "dns";
+import chalk from 'chalk';
+
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 import "./config/config.js";
@@ -20,6 +22,9 @@ try {
   server = app.listen(PORT, () =>
     console.log(`Server listening on port ${PORT}!`),
   );
+  console.log(
+  `open url ${chalk.blue('http://localhost:3000/api-docs/')} to get endpoints`
+);
 } catch (error) {
   console.log(error);
 }

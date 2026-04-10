@@ -14,17 +14,20 @@
   "description": "",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "chalk": "^5.6.2",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "html-to-text": "^9.0.5",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.3.3",
     "morgan": "^1.10.1",
-    "multer": "^2.1.1"
+    "multer": "^2.1.1",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14",
     "nodemailer": "^8.0.4",
+    "nodemon": "^3.1.14",
     "pug": "^3.0.4",
     "stripe": "^21.0.1"
   }

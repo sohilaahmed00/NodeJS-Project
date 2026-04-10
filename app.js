@@ -4,6 +4,10 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import morgan from 'morgan';
 
+
+import swaggerUi from "swagger-ui-express";
+import YAML from "yamljs";
+
 import globalErrorHandler from './middleware/errorHandler.js';
 import * as orderController from './controllers/orderController.js';
 import { mountRoutes } from './routes/index.js';
@@ -40,4 +44,7 @@ mountRoutes(app);
 
 app.use(globalErrorHandler);
 
+
+const swaggerDoc = YAML.load("./swagger.yaml");
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 export { app };
