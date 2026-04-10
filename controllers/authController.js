@@ -86,6 +86,12 @@ export const login = asyncHandler(async (req, res, next) => {
   if (!user || !(await user.correctPassword(password, user.password)))
     return next(new APIError('Incorrect email or password', 401));
 
+  if (!user.isVerified) {
+    return next(
+      new APIError('Please verify your email before logging in', 401),
+    );
+  }
+
   createSendToken(user, 200, res);
 });
 

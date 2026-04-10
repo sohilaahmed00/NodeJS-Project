@@ -11,14 +11,8 @@ const router = Router();
 
 router.use(protect, restrictTo('user'));
 
-router
-  .route('/')
-  .get(getCurrentUserAddresses)
-  .post(addAddress);
+router.route('/').get(getCurrentUserAddresses).post(addAddress);
 
-router
-  .route('/:addressId')
-  .put(updateAddress)
-  .delete(removeAddress);
+router.route('/:addressId').patch(updateAddress).delete(removeAddress);
 
 export default router;

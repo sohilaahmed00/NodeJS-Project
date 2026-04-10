@@ -1,23 +1,20 @@
 import mongoose from 'mongoose';
 
-const cartItemSchema = new mongoose.Schema(
-  {
-    product: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Product',
-      required: [true, 'Cart item must belong to a product'],
-    },
-    quantity: {
-      type: Number,
-      default: 1,
-      min: [1, 'Quantity must be at least 1'],
-    },
-    price: {
-      type: Number,
-    },
+const cartItemSchema = new mongoose.Schema({
+  product: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Product',
+    required: [true, 'Cart item must belong to a product'],
   },
-  { _id: false }
-);
+  quantity: {
+    type: Number,
+    default: 1,
+    min: [1, 'Quantity must be at least 1'],
+  },
+  price: {
+    type: Number,
+  },
+});
 
 const cartSchema = new mongoose.Schema(
   {
@@ -38,7 +35,7 @@ const cartSchema = new mongoose.Schema(
     timestamps: true,
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
-  }
+  },
 );
 
 // Virtual: total price of all items

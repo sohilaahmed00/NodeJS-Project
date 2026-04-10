@@ -1,20 +1,17 @@
 import { Router } from 'express';
 import {
-  addProductToWhishlist,
-  removeProductFromWhishlist,
-  getCurrentUserWhishlist,
-} from '../controllers/whishlistController.js';
+  addProductToWishlist,
+  removeProductFromWishlist,
+  getCurrentUserWishlist,
+} from '../controllers/wishlistController.js';
 import { protect, restrictTo } from '../controllers/authController.js';
 
 const router = Router();
 
 router.use(protect, restrictTo('user'));
 
-router
-  .route('/')
-  .get(getCurrentUserWhishlist)
-  .post(addProductToWhishlist);
+router.route('/').get(getCurrentUserWishlist).post(addProductToWishlist);
 
-router.delete('/:productId', removeProductFromWhishlist);
+router.delete('/:productId', removeProductFromWishlist);
 
 export default router;
