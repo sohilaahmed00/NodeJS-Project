@@ -29,211 +29,210 @@ components:
       scheme: bearer
       bearerFormat: JWT
 
-  
   schemas:
-  #   # ── Auth ──────────────────────────────────
-  #   SignupRequest:
-  #     type: object
-  #     required: [name, email, password]
-  #     properties:
-  #       name: { type: string, example: John Doe }
-  #       email: { type: string, format: email, example: john@example.com }
-  #       password: { type: string, format: password, example: secret123 }
+    # ── Auth ──────────────────────────────────
+    SignupRequest:
+      type: object
+      required: [name, email, password]
+      properties:
+        name: { type: string, example: John Doe }
+        email: { type: string, format: email, example: john@example.com }
+        password: { type: string, format: password, example: secret123 }
 
-  #   LoginRequest:
-  #     type: object
-  #     required: [email, password]
-  #     properties:
-  #       email: { type: string, format: email, example: john@example.com }
-  #       password: { type: string, format: password, example: secret123 }
+    LoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string, format: email, example: john@example.com }
+        password: { type: string, format: password, example: secret123 }
 
-  #   AuthResponse:
-  #     type: object
-  #     properties:
-  #       status: { type: string, example: success }
-  #       token:
-  #         { type: string, example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9... }
+    AuthResponse:
+      type: object
+      properties:
+        status: { type: string, example: success }
+        token:
+          { type: string, example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9... }
 
-  #   # ── User ──────────────────────────────────
-  #   User:
-  #     type: object
-  #     properties:
-  #       _id: { type: string, example: 64a1f2b3c4e5d6f7a8b9c0d1 }
-  #       name: { type: string, example: John Doe }
-  #       email: { type: string, example: john@example.com }
-  #       role: { type: string, enum: [user, admin], example: user }
+    # ── User ──────────────────────────────────
+    User:
+      type: object
+      properties:
+        _id: { type: string, example: 64a1f2b3c4e5d6f7a8b9c0d1 }
+        name: { type: string, example: John Doe }
+        email: { type: string, example: john@example.com }
+        role: { type: string, enum: [user, admin], example: user }
 
-  #   UpdateMeRequest:
-  #     type: object
-  #     properties:
-  #       name: { type: string }
-  #       email: { type: string, format: email }
+    UpdateMeRequest:
+      type: object
+      properties:
+        name: { type: string }
+        email: { type: string, format: email }
 
-  #   # ── Product ───────────────────────────────
-  #   Product:
-  #     type: object
-  #     properties:
-  #       _id: { type: string }
-  #       name: { type: string, example: Running Shoes }
-  #       price: { type: number, example: 99.99 }
-  #       description: { type: string }
-  #       image: { type: string }
-  #       quantity: { type: integer, example: 50 }
-  #       sold: { type: integer, example: 10 }
-  #       priceAfterDiscount: { type: number, example: 79.99 }
-  #       ratingsAverage: { type: number, example: 4.5 }
-  #       ratingsQuantity: { type: integer, example: 12 }
-  #       category: { type: string, example: 64a1f2b3c4e5d6f7a8b9c0d1 }
+    # ── Product ───────────────────────────────
+    Product:
+      type: object
+      properties:
+        _id: { type: string }
+        name: { type: string, example: Running Shoes }
+        price: { type: number, example: 99.99 }
+        description: { type: string }
+        image: { type: string }
+        quantity: { type: integer, example: 50 }
+        sold: { type: integer, example: 10 }
+        priceAfterDiscount: { type: number, example: 79.99 }
+        ratingsAverage: { type: number, example: 4.5 }
+        ratingsQuantity: { type: integer, example: 12 }
+        category: { type: string, example: 64a1f2b3c4e5d6f7a8b9c0d1 }
 
-  #   ProductRequest:
-  #     type: object
-  #     required: [name, price, description, quantity, category]
-  #     properties:
-  #       name: { type: string }
-  #       price: { type: number }
-  #       description: { type: string }
-  #       image: { type: string, format: binary }
-  #       quantity: { type: integer }
-  #       priceAfterDiscount: { type: number }
-  #       category: { type: string }
+    ProductRequest:
+      type: object
+      required: [name, price, description, quantity, category]
+      properties:
+        name: { type: string }
+        price: { type: number }
+        description: { type: string }
+        image: { type: string, format: binary }
+        quantity: { type: integer }
+        priceAfterDiscount: { type: number }
+        category: { type: string }
 
-  #   # ── Category ──────────────────────────────
-  #   Category:
-  #     type: object
-  #     properties:
-  #       _id: { type: string }
-  #       name: { type: string, example: Electronics }
-  #       image: { type: string }
+    # ── Category ──────────────────────────────
+    Category:
+      type: object
+      properties:
+        _id: { type: string }
+        name: { type: string, example: Electronics }
+        image: { type: string }
 
-  #   # ── Review ────────────────────────────────
-  #   Review:
-  #     type: object
-  #     properties:
-  #       _id: { type: string }
-  #       product_id: { type: string }
-  #       user_id: { type: string }
-  #       rating: { type: number, minimum: 1, maximum: 5, example: 4 }
-  #       review: { type: string, example: Great product! }
+    # ── Review ────────────────────────────────
+    Review:
+      type: object
+      properties:
+        _id: { type: string }
+        product_id: { type: string }
+        user_id: { type: string }
+        rating: { type: number, minimum: 1, maximum: 5, example: 4 }
+        review: { type: string, example: Great product! }
 
-  #   ReviewRequest:
-  #     type: object
-  #     required: [rating, review]
-  #     properties:
-  #       rating: { type: number, minimum: 1, maximum: 5, example: 4 }
-  #       review: { type: string, example: Great product! }
+    ReviewRequest:
+      type: object
+      required: [rating, review]
+      properties:
+        rating: { type: number, minimum: 1, maximum: 5, example: 4 }
+        review: { type: string, example: Great product! }
 
-  #   # ── Cart ──────────────────────────────────
-  #   CartItem:
-  #     type: object
-  #     properties:
-  #       product: { type: string }
-  #       quantity: { type: integer, example: 2 }
-  #       price: { type: number, example: 99.99 }
+    # ── Cart ──────────────────────────────────
+    CartItem:
+      type: object
+      properties:
+        product: { type: string }
+        quantity: { type: integer, example: 2 }
+        price: { type: number, example: 99.99 }
 
-  #   Cart:
-  #     type: object
-  #     properties:
-  #       _id: { type: string }
-  #       user: { type: string }
-  #       items:
-  #         type: array
-  #         items: { $ref: "#/components/schemas/CartItem" }
-  #       totalPrice: { type: number }
+    Cart:
+      type: object
+      properties:
+        _id: { type: string }
+        user: { type: string }
+        items:
+          type: array
+          items: { $ref: "#/components/schemas/CartItem" }
+        totalPrice: { type: number }
 
-  #   AddToCartRequest:
-  #     type: object
-  #     required: [productId, quantity]
-  #     properties:
-  #       productId: { type: string }
-  #       quantity: { type: integer, example: 1 }
+    AddToCartRequest:
+      type: object
+      required: [productId, quantity]
+      properties:
+        productId: { type: string }
+        quantity: { type: integer, example: 1 }
 
-  #   ApplyCouponRequest:
-  #     type: object
-  #     required: [coupon]
-  #     properties:
-  #       coupon: { type: string, example: SAVE10 }
+    ApplyCouponRequest:
+      type: object
+      required: [coupon]
+      properties:
+        coupon: { type: string, example: SAVE10 }
 
-  #   # ── Order ─────────────────────────────────
-  #   Order:
-  #     type: object
-  #     properties:
-  #       _id: { type: string }
-  #       user: { type: string }
-  #       items: { type: array, items: { $ref: "#/components/schemas/CartItem" } }
-  #       totalPrice: { type: number }
-  #       paymentMethod: { type: string, enum: [cash, card] }
-  #       status:
-  #         {
-  #           type: string,
-  #           enum: [pending, processing, shipped, delivered, cancelled],
-  #         }
+    # ── Order ─────────────────────────────────
+    Order:
+      type: object
+      properties:
+        _id: { type: string }
+        user: { type: string }
+        items: { type: array, items: { $ref: "#/components/schemas/CartItem" } }
+        totalPrice: { type: number }
+        paymentMethod: { type: string, enum: [cash, card] }
+        status:
+          {
+            type: string,
+            enum: [pending, processing, shipped, delivered, cancelled],
+          }
 
-  #   UpdateOrderStatusRequest:
-  #     type: object
-  #     required: [status]
-  #     properties:
-  #       status:
-  #         {
-  #           type: string,
-  #           enum: [pending, processing, shipped, delivered, cancelled],
-  #         }
+    UpdateOrderStatusRequest:
+      type: object
+      required: [status]
+      properties:
+        status:
+          {
+            type: string,
+            enum: [pending, processing, shipped, delivered, cancelled],
+          }
 
-  #   # ── Coupon ────────────────────────────────
-  #   Coupon:
-  #     type: object
-  #     properties:
-  #       _id: { type: string }
-  #       name: { type: string, example: SAVE10 }
-  #       discount: { type: number, example: 10 }
-  #       expire: { type: string, format: date, example: "2025-12-31" }
+    # ── Coupon ────────────────────────────────
+    Coupon:
+      type: object
+      properties:
+        _id: { type: string }
+        name: { type: string, example: SAVE10 }
+        discount: { type: number, example: 10 }
+        expire: { type: string, format: date, example: "2025-12-31" }
 
-  #   CouponRequest:
-  #     type: object
-  #     required: [name, discount, expire]
-  #     properties:
-  #       name: { type: string }
-  #       discount: { type: number }
-  #       expire: { type: string, format: date }
+    CouponRequest:
+      type: object
+      required: [name, discount, expire]
+      properties:
+        name: { type: string }
+        discount: { type: number }
+        expire: { type: string, format: date }
 
-  #   # ── Address ───────────────────────────────
-  #   Address:
-  #     type: object
-  #     properties:
-  #       _id: { type: string }
-  #       street: { type: string }
-  #       city: { type: string }
-  #       zip: { type: string }
-  #       country:{ type: string }
+    # ── Address ───────────────────────────────
+    Address:
+      type: object
+      properties:
+        _id: { type: string }
+        street: { type: string }
+        city: { type: string }
+        zip: { type: string }
+        country:{ type: string }
 
-  #   AddressRequest:
-  #     type: object
-  #     required: [street, city, country]
-  #     properties:
-  #       street: { type: string }
-  #       city: { type: string }
-  #       zip: { type: string }
-  #       country: { type: string }
+    AddressRequest:
+      type: object
+      required: [street, city, country]
+      properties:
+        street: { type: string }
+        city: { type: string }
+        zip: { type: string }
+        country: { type: string }
 
-  #   # ── Wishlist ──────────────────────────────
-  #   Wishlist:
-  #     type: object
-  #     properties:
-  #       _id: { type: string }
-  #       user: { type: string }
-  #       products: { type: array, items: { type: string } }
+    # ── Wishlist ──────────────────────────────
+    Wishlist:
+      type: object
+      properties:
+        _id: { type: string }
+        user: { type: string }
+        products: { type: array, items: { type: string } }
 
-  #   # ── Common ────────────────────────────────
-  #   SuccessResponse:
-  #     type: object
-  #     properties:
-  #       status: { type: string, example: success }
-  #       data: { type: object }
+    # ── Common ────────────────────────────────
+    SuccessResponse:
+      type: object
+      properties:
+        status: { type: string, example: success }
+        data: { type: object }
 
-  #   ErrorResponse:
-  #     type: object
-  #     properties:
-  #       status: { type: string, example: fail }
-  #       message: { type: string, example: Resource not found }
+    ErrorResponse:
+      type: object
+      properties:
+        status: { type: string, example: fail }
+        message: { type: string, example: Resource not found }
 
   responses:
     Unauthorized:
